@@ -85,4 +85,17 @@ Create project, you can run:
     We enter the folder created with build and executing the following command
 
     http-server -o# myComponents-sb
-# Discover-storybook
+
+## Deploy-storybook
+
+    We use yarn build because we have configured package.json otherwise we must to use yarn build-storybook
+
+    yarn build
+
+### Deploy-storybook with Github
+
+    In the .gitignore file add /storybook-static
+    Rename storybook-static to docs
+
+    
+
