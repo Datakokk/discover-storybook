@@ -97,5 +97,15 @@ Create project, you can run:
     In the .gitignore file add /storybook-static
     Rename storybook-static to docs
 
+    1) To deploy docs in github pages we go to settings
     
+    2) click en pages
+
+    3) In source we leave "deploy from a branch"
+
+    4) In branch select main an then the docs folder and click in "save"
+
+    5) Refresh the page and ready
+
+    6)  https://datakokk.github.io/discover-storybook/
 
