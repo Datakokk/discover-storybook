@@ -109,3 +109,38 @@ Create project, you can run:
 
     6)  https://datakokk.github.io/discover-storybook/
 
+
+## Using-Chromatic
+
+    https://www.chromatic.com/
+
+    1) Sign up with github account
+
+    2) Choose a project from github
+
+    3) Select discover storybook
+
+    4) Run the next to commands:
+
+        a) Get the Chromatic package:
+
+            yarn add --dev chromatic
+
+        b) Publish your Storybook
+
+            npx chromatic --project-token=xxxxxxxxxxxx
+
+    5) If we need to deploy again we use this command:
+
+        yarn chromatic 
+
+            or
+        
+        npm run chromatic
+                                            
+
+
+
+
+
+
