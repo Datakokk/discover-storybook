@@ -71,3 +71,5 @@ export const Page = ({user, onLogin, onLogout, onCreateAccount }: PageProps) => 
     </article>
   );
 };
+
+export default Page;
