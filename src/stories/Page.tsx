@@ -1,22 +1,22 @@
-import React from 'react';
 
 import { Header } from './Header';
 import './page.css';
 
-type User = {
-  name: string;
-};
+export interface PageProps {
+  user?: {
+    name: 'Almu'
+  };
+  onLogin: () => void;
+  onLogout: () => void;
+  onCreateAccount: () => void;
+}
 
-export const Page: React.VFC = () => {
-  const [user, setUser] = React.useState<User>();
+export const Page = ({user, onLogin, onLogout, onCreateAccount }: PageProps) => {
 
   return (
     <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
+      <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount}
+        
       />
 
       <section>

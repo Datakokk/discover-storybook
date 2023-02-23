@@ -109,8 +109,131 @@ Create project, you can run:
 
     6)  https://datakokk.github.io/discover-storybook/
 
+## Github Actions + Semantic Versating + Automatic Npm Deploy + Storybook
 
-## Using-Chromatic
+### Modify the package.json like this:
+    {
+        "name": "cfcg-discover-storybook", 
+        "version": "0.1.0",
+        "private": false,
+        "license": "MIT",
+        "typings": "dist/index.js",
+        "main": "dist/index.js",
+        "homepage": "",
+        "repository": {
+          "url": "https://github.com/Datakokk/discover-storybook",
+          "type": "git"
+        },
+        "release": {
+          "branches": [
+              "main"
+          ]
+        },
+        "files": [
+          "dist",
+          "src"
+        ],
+        "dependencies": {
+            ...........
+    }
+
+### Modify the TSConfig.json like this:
+    It's important to install typescript in a global form.
+
+    sudo apt install node-typescript
+
+    check it with this command:
+
+    tsc --version
+
+    then modigy the TSConfig.json
+
+    {
+      "compilerOptions": {
+        "outDir": "dist",
+        "target": "es5",
+        "lib": [
+          "dom",
+          "dom.iterable",
+          "esnext"
+        ],
+        "declaration": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": false,
+        "jsx": "react-jsx"
+      },
+      "include": [
+        "src"
+      ]
+    }
+
+### Run tsc command:   
+
+    tsc 
+
+    if we have feils, we must to check *.tsx and addes export to interfaces, delete the dist folder from our app, we must add all components in the index.tsx
+    and run again tsc.
+
+    tsc
+
+### rimraf package:
+    Ever time we need to create a dist folder its important to delete the old dist folder because typescript don't make it.
+    this is the razon we will install this package
+
+    https://www.npmjs.com/package/rimraf
+
+    yarn add -D rimraf
+
+### copyfiles package:
+    Typescript only add files .tsx and .ts this is the razon we will to install copyfiles package, because we nees to copy files like .css .......
+
+    https://www.npmjs.com/package/copyfiles
+
+    yarn add -D copyfiles
+
+### mofify scripts in package.json:
+    We made this because we need to use they two packages we have installed
+
+    "scripts": {
+      "start": "start-storybook -p 6006",
+      "build": "yarn clean && tsc && yarn copy-files", we run three commands
+      "storybook": "start-storybook -p 6006",
+      "build-storybook": "build-storybook",
+      "chromatic": "npx chromatic --project-token=96fe6bd43a7b",
+      "clean": "rimraf dist/", /** delete the dist folder */
+      "copy-files": "copyfiles -u 1 src/**/*.css dist/" /** copy the css files inside of the dist folder */
+    }
+
+### add peerDependencies in package.json:
+    When we added this dependences we oblige the person who has these dependencies installed on their machine
+
+### Automatic Semantic versioning
+    https://www.npmjs.com/package/semantic-release
+
+    yarn add -D semantic-release
+
+    then we add this to the package.json:
+
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/changelog",
+        "@semantic-release/github",
+        "@semantic-release/npm",
+        "@semantic-release/git"
+    ],
+
+## Using-Chromatic( optional )
 
     https://www.chromatic.com/
 
