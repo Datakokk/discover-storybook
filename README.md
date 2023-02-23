@@ -233,6 +233,32 @@ Create project, you can run:
         "@semantic-release/git"
     ],
 
+    git add .
+    git commit -m "feat: semantic-version added" // this semantic is very important.
+
+    those is the semantic we must to use(Read documentation)
+    ====================================
+    Commit message	                                                            | Release type
+    fix(pencil): stop graphite breaking when too much pressure applied	        | Patch Fix Release
+    feat(pencil): add 'graphiteWidth' option	                                  | Minor Feature Release
+    perf(pencil): remove graphiteWidth option
+                                                                                |
+    BREAKING CHANGE: The graphiteWidth option has been removed.                 |
+    The default graphite width of 10mm is always used for performance reasons.	| Major Breaking Release
+    (Note that the BREAKING CHANGE: token must be in the footer of the commit)
+
+### Generate Token github
+    In Github we generated a token y we give acces to the repo for 90 days
+
+    In NPM we create a new token or something it must be PUBLISH 
+
+    In our repository in Github click in settings scroll below in the left menu to fine SECRETS click in actions then click in NEW repository secret
+    put the name and the token we have creted before and click in add.
+
+    The same process with the npm_token created before we will add this token a github
+
+
+
 ## Using-Chromatic( optional )
 
     https://www.chromatic.com/
