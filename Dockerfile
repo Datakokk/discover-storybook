@@ -15,6 +15,6 @@ FROM nginx:alpine
 # Copy the built Storybook from the builder stage
 COPY --from=builder /app/storybook-static /usr/share/nginx/html
 # Expose port 80
-EXPOSE 80
+EXPOSE 8080
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
